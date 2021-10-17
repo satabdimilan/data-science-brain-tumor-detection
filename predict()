@@ -1,0 +1,10 @@
+from sklearn.metrics import classification_report, confusion_matrix
+
+predictions = model.predict(test_X, batch_size= batch_size)
+predictions = np.argmax(predictions, axis= 1)
+actuals = np.argmax(test_Y, axis= 1)
+
+print(classification_report(actuals, predictions, target_names= label_binarizer.classes_))
+
+cm = confusion_matrix(actuals, predictions)
+print(cm)

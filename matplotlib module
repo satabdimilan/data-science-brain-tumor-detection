@@ -1,0 +1,4 @@
+def plot_image(image):
+    plt.imshow(image)
+
+plot_image(images[0])

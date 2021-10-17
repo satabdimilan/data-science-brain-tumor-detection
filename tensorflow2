@@ -1,0 +1,16 @@
+from tensorflow.keras.layers import Input
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import AveragePooling2D
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.applications import VGG16
+
+base_model = VGG16(weights= 'imagenet', input_tensor= Input(shape = (224, 224, 3)), include_top= False)
+base_input = base_model.input
+
+base_output = base_model.output
+base_output = AveragePooling2D(pool_size=(4, 4))(base_output)
+base_output = Flatten(name="flatten")(base_output)
+base_output = Dense(64, activation="relu")(base_output)
+base_output = Dropout(0.5)(base_output)
+base_output = Dense(2, activation="softmax")(base_output)

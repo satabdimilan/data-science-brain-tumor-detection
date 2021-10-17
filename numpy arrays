@@ -1,0 +1,10 @@
+from sklearn.preprocessing import LabelBinarizer
+from tensorflow.keras.utils import to_categorical
+import numpy as np
+
+images = np.array(images) / 255.0
+labels = np.array(labels)
+
+label_binarizer = LabelBinarizer()
+labels = label_binarizer.fit_transform(labels)
+labels = to_categorical(labels)

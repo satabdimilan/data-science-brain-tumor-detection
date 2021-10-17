@@ -1,0 +1,9 @@
+from imutils import paths
+import matplotlib.pyplot as plt
+import argparse
+import os
+import cv2
+
+# Load the images directories
+path = "./Desktop/DataFlair/brain_tumor_dataset"
+image_paths = list(paths.list_images(path))
